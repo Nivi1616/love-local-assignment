@@ -1,0 +1,21 @@
+Given an integer numRows, return the first numRows of Pascal's triangle.
+(Python)
+def pascal_triangle(numRows):
+    # Initialize the triangle with the first row
+    triangle = [[1]]
+    # Loop from 1 to numRows - 1
+    for i in range(1, numRows):
+        # Get the previous row
+        prev_row = triangle[i - 1]
+        # Create a new row with 1 at the beginning and end
+        new_row = [1]
+        # Loop from 1 to i - 1
+        for j in range(1, i):
+            # Add the adjacent elements of the previous row
+            new_row.append(prev_row[j - 1] + prev_row[j])
+        # Add 1 at the end of the new row
+        new_row.append(1)
+        # Append the new row to the triangle
+        triangle.append(new_row)
+    # Return the triangle
+    return triangle
